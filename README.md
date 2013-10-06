@@ -49,16 +49,16 @@ cohort the user falls within.
 
 ## Demo Application ##
 
-A demo application is available to better showcase the use of multivariate. Please
-see the [multivariate-demo](https://github.com/DylanTS/multivariate-demo) for more
-information.
+A full demo application is available to better showcase the use of multivariate.
+Please see the [multivariate-demo](https://github.com/DylanTS/multivariate-demo)
+for more information.
 
 ## Multivariate Configuration ##
 
 Several configuration options are available when instantiating the multivariate test
 for your page. The multivariate constructor has the following signature:
 
-<code>function Multivariate(testName, options)</code>
+<code>function Multivariate(testName, options) { ... }</code>
 
 ### testName ###
 
@@ -73,15 +73,16 @@ The multivariate constructor takes a single options parameter which can contain 
 of the following parameters:
 
 <ul>
-<li><code>sample</code> : The size of your audience you wish to participate in
-this test, from 0 to 1. For example, if you wanted to run this test on half your
-users, pass in 0.5. For 75% pass in 0.75. If not supplied, this defaults to 0.5
-(50%).</li>
+<li><code>sample</code> :  The size of the audience you wish to participate
+in this A/B test, from 0 to 100. For example, if you want to run this test on
+half your users, pass in 50 to represent 50% sample size. For a 75% sample
+size, pass in 75. The default value is 50.</li>
 <li><code>gaTrackingId</code> : If Google Analytics is desired, the Google Analytics
 tracking ID must be supplied. This String is usually of the form "UA-XXXX-Y".
-By supplying this value you enable Google Analytics for multivariate test pages.</li>
+By supplying this value you enable Google Analytics for multivariate test pages.
+If this value is not supplied, Google Analytics support will be disabled.</li>
 <li><code>isDevEnv</code> : If Google Analytics is enabled, this boolean is used
 to determine if we're running in the development environment (meaning on
 "localhost"). Google Analytics creates a cookie and needs to know the domain does
-not exist if running on localhost. This defaults to false if not supplied.</li>
+not exist if running on localhost. The default value is false.</li>
 </ul>
