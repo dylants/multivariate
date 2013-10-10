@@ -56,4 +56,5 @@ The multivariate constructor takes a single options parameter which can contain 
 <li><code>sample</code> :  The size of the audience you wish to participate in this A/B test, from 0 to 100. For example, if you want to run this test on half your users, pass in 50 to represent 50% sample size. For a 75% sample size, pass in 75. The default value is 50.</li>
 <li><code>gaTrackingId</code> : If Google Analytics is desired, the Google Analytics tracking ID must be supplied. This String is usually of the form "UA-XXXX-Y". By supplying this value you enable Google Analytics for multivariate test pages. If this value is not supplied, Google Analytics support will be disabled.</li>
 <li><code>isDevEnv</code> : If Google Analytics is enabled, this boolean is used to determine if we're running in the development environment (meaning on "localhost"). Google Analytics creates a cookie and needs to know the domain does not exist if running on localhost. The default value is false.</li>
+<li><code>debug</code> : Enable sending debug information to the console. Defaults to false.</li>
 </ul>
