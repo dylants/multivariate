@@ -38,7 +38,9 @@ A more complete example can be found in the [multivariate-demo application](http
 
 Several configuration options are available when instantiating the multivariate test for your page. The multivariate constructor has the following signature:
 
-<code>function Multivariate(testName, options) { ... }</code>
+```JavaScript
+function Multivariate(testName, options) { ... }
+```
 
 Below is an overview of the arguments available:
 
