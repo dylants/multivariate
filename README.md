@@ -10,6 +10,14 @@ A client side JavaScript A/B test library. Multivariate helps you define a test,
 - [Multivariate Configuration](#multivariate-configuration)
     - [testName](#testname)
     - [options](#options)
+- [Google Analytics](#google-analytics)
+- [Multivariate API](#multivariate-api)
+    - [runTest([sendPageView])](#runtestsendpageview)
+    - [isInTestGroup()](#isintestgroup)
+    - [gaSendPageView()](#gasendpageview)
+    - [gaSetDimension(dimensionName, dimensionValue)](#gasetdimensiondimensionname-dimensionvalue)
+    - [gaBindClickEvent(id)](#gabindclickeventid)
+- [License](#license)
 
 ## Tutorials and Guides ##
 
@@ -66,3 +74,58 @@ The multivariate constructor takes a single options parameter which can contain 
 - <code>isDevEnv</code> : If Google Analytics is enabled, this boolean is used to determine if we're running in the development environment (meaning on "localhost"). Google Analytics creates a cookie and needs to know the domain does not exist if running on localhost. The default value is false.
 - <code>cookieExpireDays</code> : The number of days the cookie, which maps a user to a certain test, should persist in the user's browser. The default value is 90.
 - <code>debug</code> : Enable sending debug information to the console. Defaults to false.
+
+## Google Analytics ##
+
+If the <code>gaTrackingId</code> is provided to the multivariate constructor, Google Analytics will be configured and setup on that page automatically. This means that the [JavaScript snippet specified on the Universal Analytics version of Google Analytics website](https://developers.google.com/analytics/devguides/collection/analyticsjs/) is not needed. Simply pass in the <code>gaTrackingId</code> and multivariate will execute the required code, setting up Google Analytics.
+
+Multivariate also supplies some Google Analytics helper functions which can be useful when additional analytics support is desired. See the [Multivariate API](#multivariate-api) section of the documentation for more information.
+
+## Multivariate API ##
+
+Below is an overview of the public APIs available through multivariate:
+
+### runTest([sendPageView])
+
+Executes the A/B test. If the user is in the test group, show all elements with class "mv-test", and hide all elements with class "mv-control". If not, the opposite is done ("mv-control" is shown, "mv-test" hidden). Additionally, if Google Analytics support is enabled, this will send a page view request to Google Analytics. To disable this feature, pass in false to the function.
+
+__Arguments__
+
+* sendPageView - If Google Analytics support is enabled, and this parameter is true (or not supplied), this function will send a page view request to Google Analytics. This parameter defaults to true if not supplied.
+
+---------------------------------------
+
+### isInTestGroup()
+
+Returns true if the current user is in the test group, false if the user is in the control group (not in test).
+
+---------------------------------------
+
+### gaSendPageView()
+
+Sends Google Analytics a message to track this page. Note that this is called automatically when <code>runTest()</code> is called, if Google Analytics support is enabled.
+
+---------------------------------------
+
+### gaSetDimension(dimensionName, dimensionValue)
+
+Sends Google Analytics a custom dimemsion name and value.
+
+__Arguments__
+
+* dimensionName - The custom dimension name
+* dimensionValue - The custom dimension value
+
+---------------------------------------
+
+### gaBindClickEvent(id)
+
+Binds a click event to send Google Analytics a custom event, with category set to "button", action set to "click", and label set to the ID of the element.
+
+__Arguments__
+
+* id - The ID of the element to bind
+
+## License ##
+
+[MIT](https://github.com/dylants/multivariate/blob/master/LICENSE)
