@@ -1,0 +1,20 @@
+{
+    "name": "multivariate",
+    "description": "A client side JavaScript A/B test library",
+    "author": "Dylan Smith",
+    "version": "0.1.0",
+    "main": "multivariate.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dylants/multivariate.git"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://raw.github.com/dylants/multivariate/master/LICENSE"
+    }],
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.4",
+        "grunt-contrib-uglify": "~0.2.4"
+    }
+}
