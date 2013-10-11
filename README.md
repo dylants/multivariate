@@ -2,6 +2,15 @@
 
 A client side JavaScript A/B test library. Multivariate helps you define a test, specify the sample size of your audience which should see the test, and collect data to verify if the test was successful. Support for Google Analytics is built into multivariate to allow you to track page views, custom metrics or dimensions, and user interaction through events. (Note that multivariate uses the [Universal Analytics version of Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/).)
 
+## Documentation ##
+
+- [Tutorials and Guides](#tutorials-and-guides)
+    - [Quick Start](#quick-start)
+    - [Demo Application](#demo-application)
+- [Multivariate Configuration](#multivariate-configuration)
+    - [testName](#testname)
+    - [options](#options)
+
 ## Tutorials and Guides ##
 
 ### Quick Start ###
@@ -52,9 +61,8 @@ The multivariate constructor takes in one required argument, <code>testName</cod
 
 The multivariate constructor takes a single options parameter which can contain any of the following parameters:
 
-<ul>
-<li><code>sample</code> :  The size of the audience you wish to participate in this A/B test, from 0 to 100. For example, if you want to run this test on half your users, pass in 50 to represent 50% sample size. For a 75% sample size, pass in 75. The default value is 50.</li>
-<li><code>gaTrackingId</code> : If Google Analytics is desired, the Google Analytics tracking ID must be supplied. This String is usually of the form "UA-XXXX-Y". By supplying this value you enable Google Analytics for multivariate test pages. If this value is not supplied, Google Analytics support will be disabled.</li>
-<li><code>isDevEnv</code> : If Google Analytics is enabled, this boolean is used to determine if we're running in the development environment (meaning on "localhost"). Google Analytics creates a cookie and needs to know the domain does not exist if running on localhost. The default value is false.</li>
-<li><code>debug</code> : Enable sending debug information to the console. Defaults to false.</li>
-</ul>
+- <code>sample</code> :  The size of the audience you wish to participate in this A/B test, from 0 to 100. For example, if you want to run this test on half your users, pass in 50 to represent 50% sample size. For a 75% sample size, pass in 75. The default value is 50.
+- <code>gaTrackingId</code> : If Google Analytics is desired, the Google Analytics tracking ID must be supplied. This String is usually of the form "UA-XXXX-Y". By supplying this value you enable Google Analytics for multivariate test pages. If this value is not supplied, Google Analytics support will be disabled.
+- <code>isDevEnv</code> : If Google Analytics is enabled, this boolean is used to determine if we're running in the development environment (meaning on "localhost"). Google Analytics creates a cookie and needs to know the domain does not exist if running on localhost. The default value is false.
+- <code>cookieExpireDays</code> : The number of days the cookie, which maps a user to a certain test, should persist in the user's browser. The default value is 90.
+- <code>debug</code> : Enable sending debug information to the console. Defaults to false.
