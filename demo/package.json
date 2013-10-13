@@ -1,0 +1,16 @@
+{
+  "name": "multivariate-demo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "~3.4.0",
+    "nodemon": "~0.7.10",
+    "consolidate": "~0.9.1",
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+  }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Multivariate Demo</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- multivariate library -->
+    <script src="/assets/multivariate/multivariate.js"></script>
+</head>
+
+<body>
+    <header></header>
+
+    <section id="main" class="container">
+        <h1>Multivariate Demo</h1>
+
+        <!-- The control group will see this -->
+        <div class="mv-control">
+            <p>You are in the control group!</p>
+            <button id="button1" class="btn btn-primary">Button One</button>
+        </div>
+
+        <!-- The test group will see this -->
+        <div class="mv-test">
+            <p>You are in the test group!</p>
+            <button id="button2" class="btn btn-success">Button Two</button>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script>
+        /* Our app's code */
+        (function() {
+            var mv, button;
+
+            // Verify multivariate is available
+            if (typeof Multivariate === "undefined") {
+                alert("Multivariate is not available! Please download dependency " +
+                    "by following the instructions in this demo's README");
+                throw "Multivariate is not available, please download dependency " +
+                    "by following the instructions in this demo's README";
+            }
+
+            /*
+             * Let's create a new test for "awesome-button" which should
+             * be run on 25% of our audience. Also enable Google Analytics,
+             * and specify if we're running in development mode.
+             */
+            mv = new Multivariate("awesome-button", {
+                sample: 25,
+                gaTrackingId: "<%- gaTrackingId %>",
+                isDevEnv: <%- isDevEnv %>
+            });
+
+            /*
+             * Execute the A/B test, which will either hide the "control group"
+             * button or the "test group" button, depending on if the user
+             * is in the control or test group. Since Google Analytics is
+             * enabled in multivariate, this function will also automatically
+             * send a page view request to Google Analytics. (Pass in false
+             * to disable this feature).
+             */
+            mv.runTest();
+
+            /* 
+             * ------------------------------------------------------------
+             * Google Analytics demonstration requires a Google Analytics
+             * Tracking ID. If one is not available the examples below will
+             * be skipped. See the README for more information.
+             * ------------------------------------------------------------
+             */
+            if ("<%- gaTrackingId %>".length > 0) {
+                /*
+                 * Let's also use multivariate to perform additional Google
+                 * Analytics functions below. To begin, first determine
+                 * if the current user is in the test group or control group.
+                 * Use that to find out which button is displayed.
+                 */
+                if (mv.isInTestGroup()) {
+                    button = "button2";
+                } else {
+                    button = "button1";
+                }
+
+                /*
+                 * The Universal Analytics version of Google Analytics provides
+                 * support for custom dimensions. Once defined within the Google
+                 * Analytics system, we can set the custom dimension using
+                 * multivariate with the "gaSetDimension" function. Here we're
+                 * setting "dimension1" to the button currently being displayed.
+                 */
+                // send google analytics statistics on the button
+                mv.gaSetDimension("dimension1", button);
+
+                /*
+                 * Google Analytics also provides support for custom events, which
+                 * can be tracked in real-time. Here we're using multivariate to
+                 * bind clicking the button with sending a Google Analytics event,
+                 * with category "button", action set to "click", and label set
+                 * to the passed in String (either "button1" or "button2").
+                 */
+                if (!mv.isInTestGroup()) {
+                    mv.gaBindClickEvent("button1");
+                } else {
+                    mv.gaBindClickEvent("button2");
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
