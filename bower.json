@@ -1,0 +1,25 @@
+{
+  "name": "multivariate",
+  "main": "multivariate.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dylants/multivariate",
+  "description": "A client side JavaScript A/B test library.",
+  "keywords": [
+    "A/B",
+    "test",
+    "multivariate",
+    "library"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "*.json",
+    "Gruntfile.js",
+    "LICENSE",
+    "README.md"
+  ]
+}
