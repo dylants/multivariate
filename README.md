@@ -49,7 +49,7 @@ Instantiate a new multivariate object for each test you wish to run. Each test r
 
 ### Demo Application ###
 
-A more complete example can be found in the [multivariate-demo application](https://github.com/dylants/multivariate-demo). This demo app has a sample test, along with support for Google Analytics. The full source code is available online at: [https://github.com/dylants/multivariate-demo](https://github.com/dylants/multivariate-demo)
+A more complete example can be found in the [multivariate demo application](https://github.com/dylants/multivariate/tree/master/demo). This demo app has a sample A/B test, along with support for Google Analytics. The full source code is available online at: [https://github.com/dylants/multivariate/tree/master/demo](https://github.com/dylants/multivariate/tree/master/demo)
 
 ## Multivariate Configuration ##
 

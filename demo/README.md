@@ -1,4 +1,4 @@
-# multivariate-demo #
+# multivariate demo #
 
 A demo of the multivariate library, showcasing an example use of multivariate through a mock A/B test. The use of Google Analytics through multivariate is also demonstrated.
 
