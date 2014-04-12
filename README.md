@@ -1,4 +1,4 @@
-# multivariate #
+# multivariate [![Bower version](https://badge.fury.io/bo/multivariate.svg)](http://badge.fury.io/bo/multivariate) #
 
 A client side JavaScript A/B test library. Multivariate helps you define a test, specify the sample size of your audience which should see the test, and collect data to verify if the test was successful. Support for Google Analytics is built into multivariate to allow you to track page views, custom metrics or dimensions, and user interaction through events. (Note that multivariate uses the [Universal Analytics version of Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/).)
 
